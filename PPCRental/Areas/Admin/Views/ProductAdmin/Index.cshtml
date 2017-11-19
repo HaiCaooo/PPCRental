@@ -5,7 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h1>List of Project</h1>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,7 +13,7 @@
 
 <div class="card mb-3">
     <div class="card-header">
-        <i class="fa fa-table"></i> Data Table Example
+        <i class="fa fa-table"></i> Data Table
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -22,7 +22,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Avatar</th>
-                        <th>Images</th>
+                        @*<th>Images</th>*@
                         <th>Content</th>
                         <th>Price</th>
                         <th>UnitPrice</th>
@@ -47,7 +47,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Avatar</th>
-                        <th>Images</th>
+                        @*<th>Images</th>*@
                         <th>Content</th>
                         <th>Price</th>
                         <th>UnitPrice</th>
@@ -72,18 +72,20 @@
 
                     @foreach (var item in Model)
                     {
-                        <tr>
+                        <tr >
                             <td>
                                 @Html.DisplayFor(modelItem => item.PropertyName)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Avatar)
+                                <img src="~/Images/@item.Avatar" alt="..." width="100px">
                             </td>
-                            <td>
+                            @*<td>
+                                <img src="~/Images/@item.Images" alt="...">
                                 @Html.DisplayFor(modelItem => item.Images)
-                            </td>
+                            </td>*@
                             <td>
-                                @Html.DisplayFor(modelItem => item.Content)
+                                @item.Content.Substring(0, 100)
+                                @*@Html.DisplayFor(modelItem => item.Content)*@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Price)

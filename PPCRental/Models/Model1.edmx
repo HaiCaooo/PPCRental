@@ -526,8 +526,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PROPERTY_USER1">
-          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
-          <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="*" />
+          <End Type="Self.USER" Multiplicity="0..1" Role="USER" />
+          <End Type="Self.PROPERTY" Multiplicity="*" Role="PROPERTY" />
           <ReferentialConstraint>
             <Principal Role="USER">
               <PropertyRef Name="ID" />
@@ -596,8 +596,8 @@
             <End Role="PROPERTY" EntitySet="PROPERTies" />
           </AssociationSet>
           <AssociationSet Name="FK_PROPERTY_USER1" Association="Self.FK_PROPERTY_USER1">
-            <End Role="USER" EntitySet="USERs" />
-            <End Role="PROPERTY" EntitySet="PROPERTies" />
+            <End EntitySet="USERs" Role="USER" />
+            <End EntitySet="PROPERTies" Role="PROPERTY" />
           </AssociationSet>
           <AssociationSet Name="FK_PROPERTY_WARD" Association="Self.FK_PROPERTY_WARD">
             <End Role="WARD" EntitySet="WARDs" />
