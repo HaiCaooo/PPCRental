@@ -21,22 +21,22 @@ namespace PPCRental.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             var product = model.PROPERTies.FirstOrDefault(x => x.ID == id);
-            ViewBag.product_type = model.PROPERTies.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.ward = model.PROPERTies.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.street = model.PROPERTies.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.district = model.PROPERTies.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.product_status = model.PROPERTies.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.user = model.PROPERTies.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.sale = model.PROPERTies.OrderByDescending(x => x.ID == id).ToList();
+            ViewBag.product_type = model.PROPERTY_TYPE.OrderByDescending(x => x.ID == id).ToList();
+            ViewBag.ward = model.WARDs.OrderByDescending(x => x.ID == id).ToList();
+            ViewBag.street = model.STREETs.OrderByDescending(x => x.ID == id).ToList();
+            ViewBag.district = model.DISTRICTs.OrderByDescending(x => x.ID == id).ToList();
+            ViewBag.product_status = model.PROJECT_STATUS.OrderByDescending(x => x.ID == id).ToList();
+            ViewBag.user = model.USERs.OrderByDescending(x => x.ID == id).ToList();
+            ViewBag.sale = model.USERs.OrderByDescending(x => x.ID == id).ToList();
             return View(product);
         }
         [HttpPost]
-        public ActionResult Edit(int id, PROPERTY p)
+        public ActionResult Edit(int id,PROPERTY p)
         {
             var product = model.PROPERTies.FirstOrDefault(x => x.ID == id);
             product.PropertyName = p.PropertyName;
             product.Avatar = p.Avatar;
-            product.Images = p.Avatar;
+            product.Images = p.Images;
             product.PropertyType_ID = p.PropertyType_ID;
             product.Content = p.Content;
             product.Street_ID = p.Street_ID;
@@ -51,10 +51,12 @@ namespace PPCRental.Areas.Admin.Controllers
             product.PackingPlace = p.PackingPlace;
             product.Created_at = p.Created_at;
             product.Create_post = p.Create_post;
+
             product.Status_ID = p.Status_ID;
-            product.Note = p.Note;     
+
+            product.Note = p.Note;
             product.Updated_at = p.Updated_at;
-            product.Status_ID = p.Status_ID;
+            product.Sale_ID = p.Sale_ID;
 
             model.SaveChanges();
             return RedirectToAction("Index");
