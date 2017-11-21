@@ -23,7 +23,7 @@
                         <th>Name</th>
                         <th>Avatar</th>
                         @*<th>Images</th>*@
-                        <th>Content</th>
+                        @*<th>Content</th>
                         <th>Price</th>
                         <th>UnitPrice</th>
                         <th>Area</th>
@@ -40,7 +40,7 @@
                         <th>StreetName</th>
                         <th>Email</th>
                         <th>Email</th>
-                        <th>WardName</th>                       
+                        <th>WardName</th>*@                       
                     </tr>
                 </thead>
                 <tfoot>
@@ -48,7 +48,7 @@
                         <th>Name</th>
                         <th>Avatar</th>
                         @*<th>Images</th>*@
-                        <th>Content</th>
+                        @*<th>Content</th>
                         <th>Price</th>
                         <th>UnitPrice</th>
                         <th>Area</th>
@@ -65,7 +65,7 @@
                         <th>StreetName</th>
                         <th>Email</th> 
                         <th>Email</th>
-                        <th>WardName</th>     
+                        <th>WardName</th>*@     
                     </tr>
                 </tfoot>
                 <tbody>
@@ -77,20 +77,20 @@
                                 @Html.DisplayFor(modelItem => item.PropertyName)
                             </td>
                             <td>
-                                <img src="~/Images/@item.Avatar" alt="..." width="100px">
+                                <img src="~/Images/@item.Avatar" alt="..." width="200px">
                             </td>
                             @*<td>
                                 <img src="~/Images/@item.Images" alt="...">
                                 @Html.DisplayFor(modelItem => item.Images)
                             </td>*@
-                            <td>
+                            @*<td>
                                 @item.Content.Substring(0, 100)
-                                @*@Html.DisplayFor(modelItem => item.Content)*@
+                                @Html.DisplayFor(modelItem => item.Content)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Price)
-                            </td>
-                            <td>
+                            </td>*@
+                            @*<td>
                                 @Html.DisplayFor(modelItem => item.UnitPrice)
                             </td>
                             <td>
@@ -137,7 +137,7 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.WARD.WardName)
-                            </td>
+                            </td>*@
                             <td>
                                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
@@ -150,7 +150,7 @@
             </table>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    @*<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>*@
 </div>
         
 

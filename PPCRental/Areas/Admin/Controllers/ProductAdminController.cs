@@ -21,13 +21,13 @@ namespace PPCRental.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             var product = model.PROPERTies.FirstOrDefault(x => x.ID == id);
-            ViewBag.product_type = model.PROPERTY_TYPE.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.ward = model.WARDs.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.street = model.STREETs.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.district = model.DISTRICTs.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.product_status = model.PROJECT_STATUS.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.user = model.USERs.OrderByDescending(x => x.ID == id).ToList();
-            ViewBag.sale = model.USERs.OrderByDescending(x => x.ID == id).ToList();
+            ViewBag.product_type = model.PROPERTY_TYPE.OrderByDescending(x => x.ID).ToList();
+            ViewBag.ward = model.WARDs.OrderByDescending(x => x.ID ).ToList();
+            ViewBag.street = model.STREETs.OrderByDescending(x => x.ID ).ToList();
+            ViewBag.district = model.DISTRICTs.OrderByDescending(x => x.ID ).ToList();
+            ViewBag.product_status = model.PROJECT_STATUS.OrderByDescending(x => x.ID ).ToList();
+            ViewBag.user = model.USERs.OrderByDescending(x => x.ID ).ToList();
+            ViewBag.sale = model.USERs.OrderByDescending(x => x.ID ).ToList();
             return View(product);
         }
         [HttpPost]
@@ -64,6 +64,13 @@ namespace PPCRental.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.product_type = model.PROPERTY_TYPE.OrderByDescending(x => x.ID).ToList();
+            ViewBag.ward = model.WARDs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.street = model.STREETs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.district = model.DISTRICTs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.product_status = model.PROJECT_STATUS.OrderByDescending(x => x.ID).ToList();
+            ViewBag.user = model.USERs.OrderByDescending(x => x.ID).ToList();
+            ViewBag.sale = model.USERs.OrderByDescending(x => x.ID).ToList();
             return View();
         }
         [HttpPost]
@@ -115,7 +122,7 @@ namespace PPCRental.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public ActionResult Detail(int id)
+        public ActionResult Details(int id)
         {
             var product = model.PROPERTies.FirstOrDefault(x => x.ID == id);
             return View(product);
