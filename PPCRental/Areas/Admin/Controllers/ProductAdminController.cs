@@ -51,9 +51,7 @@ namespace PPCRental.Areas.Admin.Controllers
             product.PackingPlace = p.PackingPlace;
             product.Created_at = p.Created_at;
             product.Create_post = p.Create_post;
-
             product.Status_ID = p.Status_ID;
-
             product.Note = p.Note;
             product.Updated_at = p.Updated_at;
             product.Sale_ID = p.Sale_ID;
@@ -76,30 +74,30 @@ namespace PPCRental.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(PROPERTY p)
         {
-            var product = new PROPERTY();
-            product.PropertyName = p.PropertyName;
-            product.Avatar = p.Avatar;
-            product.Images = p.Avatar;
-            product.PropertyType_ID = p.PropertyType_ID;
-            product.Content = p.Content;
-            product.Street_ID = p.Street_ID;
-            product.Ward_ID = p.Ward_ID;
-            product.District_ID = p.District_ID;
-            product.Price = p.Price;
-            product.UnitPrice = p.UnitPrice;
-            product.Area = p.Area;
-            product.BedRoom = p.BedRoom;
-            product.BathRoom = p.BathRoom;
-            product.UserID = p.UserID;
-            product.PackingPlace = p.PackingPlace;
-            product.Created_at = p.Created_at;
-            product.Create_post = p.Create_post;
-            product.Status_ID = p.Status_ID;
-            product.Note = p.Note;
-            product.Updated_at = p.Updated_at;
-            product.Status_ID = p.Status_ID;
-
-
+            var product = new PROPERTY
+            {
+                PropertyName = p.PropertyName,
+                Avatar = p.Avatar,
+                Images = p.Avatar,
+                PropertyType_ID = p.PropertyType_ID,
+                Content = p.Content,
+                Street_ID = p.Street_ID,
+                Ward_ID = p.Ward_ID,
+                District_ID = p.District_ID,
+                Price = p.Price,
+                UnitPrice = p.UnitPrice,
+                Area = p.Area,
+                BedRoom = p.BedRoom,
+                BathRoom = p.BathRoom,
+                UserID = p.UserID,
+                PackingPlace = p.PackingPlace,
+                Created_at = p.Created_at,
+                Create_post = p.Create_post,
+                Status_ID = p.Status_ID,
+                Note = p.Note,
+                Updated_at = p.Updated_at
+             };
+            model.PROPERTies.Add(product);
             model.SaveChanges();
             return RedirectToAction("Index");
         }
